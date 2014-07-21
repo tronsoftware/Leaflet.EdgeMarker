@@ -40,7 +40,11 @@
 
       return this;
     },
-
+    off: function () {
+        this._borderMarkerLayer.clearLayers();
+        map.off('move', this._addEdgeMarkers, this);
+        map.off('viewreset', this._addEdgeMarkers, this);             
+    },
     onAdd: function () {},
 
     _borderMarkerLayer: undefined,
